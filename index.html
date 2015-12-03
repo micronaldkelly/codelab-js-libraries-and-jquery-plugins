@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/taucharts/latest/tauCharts.min.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <div id="TurkeyBowl">
+    <div id="line" style="z-index:1000; background-color:rgba(255,255,255,0.6)">
+    </div>
+  </div>
+  <script src="http://cdn.jsdelivr.net/d3js/latest/d3.min.js" charset="utf-8"></script>
+<script src="http://cdn.jsdelivr.net/underscorejs/latest/underscore-min.js" type="text/javascript"></script>
+<script src="http://cdn.jsdelivr.net/taucharts/latest/tauCharts.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.tubular.1.0.js"></script>
+<script>$().ready(function() {
+                $('#TurkeyBowl').tubular({videoId: 'i_OtcJrkFuU'}); // where idOfYourVideo is the YouTube ID.
+       });
+       var defData = [{
+  type:'TB', count:1, date:'2012'
+},{
+  type:'TB', count:2, date:'2013'
+},{
+  type:'TB', count:3, date:'2014'
+},
+{
+  type:'TB', count:4, date:'2015'
+}];
+var chart = new tauCharts.Chart({
+    guide: {
+        padding: {l: 70, t: 10, b: 70, r: 10},
+        showGridLines: 'xy',
+        y: {
+            label: {
+                text: 'Ties in Turkey Bowls in the Recent Past',
+                padding: 50
+            }
+        },
+        x: {
+            label: 'Year'
+        }
+    },
+    data: defData,
+    type: 'line',
+    x: 'date',
+    y: 'count'
+// we have two types in datasource, so there will be two lines on the chart
+});
+
+chart.renderTo('#line');
+       </script>
+  </body>
+
+</html>
